@@ -8,7 +8,6 @@
    $location = $_POST['location'];
    $hours = $_POST['hours'];
    $event_date = $_POST['event_date'];
-
    $username = $_SESSION['username'];
    $id = $_SESSION['id'];
    

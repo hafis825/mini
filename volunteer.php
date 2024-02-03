@@ -91,10 +91,16 @@
                 text-align: center
             }
         }
+
+        .table-a a{
+            color: #ff5733;
+            font-size: 18px;
+            text-decoration: none;
+            padding: 8px; 
+        }
     }
 
 
-    
 </style>
 
 <body>
@@ -146,39 +152,46 @@
 
 
 
-        <table>
-            <thead>           
-                <tr>
-                    <th>กิจกรรม</th>
-                    <th>สถานที่</th>
-                    <th>จำนวนชั่วโมง</th>
-                    <th>วันเดือนปี</th>
-                    <th style="text-align: center;">ดำเนินการ</th>
-                </tr>
-            </thead>
-            <?php while($result = mysqli_fetch_array($qry,MYSQLI_ASSOC) ){?>
-            <tbody>
-                <tr>
-                    <td><?php echo $result['volunteer'];?></td>
-                    <td><?php echo $result['location'];?></td>
-                    <td><?php echo $result['hours'];?></td>
-                    <td><?php echo $result['event_date'];?></td>
-                    <td style="text-align: center;"> 
-                    
-                    <a href="JavaScript:if(confirm('Confirm Updete?')==true){window.location='update_volunteer.php?';}" title="แก้ไข"> 
-                        <i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+    <table>
+        <thead>
+            <tr>
+                <th>กิจกรรม</th>
+                <th>สถานที่</th>
+                <th>จำนวนชั่วโมง</th>
+                <th>วันเดือนปี</th>
+                <th style="text-align: center;">ดำเนินการ</th>
+            </tr>
+        </thead>
+        <?php while($result = mysqli_fetch_array($qry,MYSQLI_ASSOC) ){?>
+        <tbody>
+            <tr>
+                <td>
+                    <?php echo $result['volunteer'];?>
+                </td>
+                <td>
+                    <?php echo $result['location'];?>
+                <td>
+                    <?php echo $result['hours'];?>
+                </td>
+                <td>
+                    <?php echo $result['event_date'];?>
+                </td>
+                <td style="text-align: center;">
 
+                    <div class="table-a">
+                        <a href="JavaScript:if(confirm('Confirm Edit?')==true){window.location='update_volunteer.php?id=<?php echo $result["id"];?>';}" title="แก้ไข">
+                            <i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
 
-                    <a href="JavaScript:if(confirm('Confirm Delete?')==true){window.location='delete.php?id=<?php echo $result["id"];?>';}" title="ลบ">
-                        <i class="fa fa-trash" aria-hidden="true"></i></a> 
-                    
-                    </td>
+                        <a href="JavaScript:if(confirm('Confirm Delete?')==true){window.location='delete.php?id=<?php echo $result["id"];?>';}" title="ลบ">
+                            <i class="fa fa-trash" aria-hidden="true"></i></a>
+                    </div>
+                </td>
 
-                </tr>
-            </tbody>
-            <?php } ?>
-        </table>
-        <?php mysqli_close($conn); ?>
+            </tr>
+        </tbody>
+        <?php } ?>
+    </table>
+    <?php mysqli_close($conn); ?>
 
     <!-- <div class="footer">
         <p><b>66309010012@Abdulhafis Waemusor</b></p>

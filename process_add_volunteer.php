@@ -14,11 +14,10 @@
    $sql = "INSERT INTO todo VALUES  (0,'$volunteer','$location','$hours','$event_date','$username')"; 
    $qry = mysqli_query($conn,$sql);
    if (!$qry) {
-       echo "ไม่สามารถเพิ่มข้อมูลได้";
+       // ไม่สามารถเพิ่มข้อมูลได้
        header("location: add_volunteer.php");
    }else { 
-   
-        echo "เพิ่มข้อมูลเรียบร้อยแล้ว";
+        // เพิ่มข้อมูลเรียบร้อยแล้ว
         header("location: volunteer.php");
    }
 

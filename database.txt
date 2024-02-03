@@ -17,9 +17,9 @@ create table profile(
 
 create table todo(
 	id int(11) auto_increment primary key not null,
-	volunteer varchar(255) ,
-    location varchar(255) ,
-    hours varchar(255) ,
-    event_date varchar(30),
+	volunteer varchar(255) not null,
+    location varchar(255) not null,
+    hours varchar(255) not null,
+    event_date varchar(30) not null,
     username varchar(255) unique
 );

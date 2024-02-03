@@ -59,7 +59,8 @@
     }
 
     table td {
-        color: #4682B4;
+        color: #ff5733;
+        padding-left: 42px;
     }
 </style>
 
@@ -113,21 +114,21 @@
     <div class="body-info">
         <img src="images/<?php echo $result['photo'];?>" alt="profile">
             <table>
-                <tr style="align-items: center;font-size: 21px;">
+                <tr style="font-size: 21px;">
                     <th>ชื่อ - สกุล</th>
                     <td>
                         <?php echo $result['fullname'];?>
                     </td>
                 </tr>
 
-                <tr style="align-items:event_date center;font-size: 21px;">
+                <tr style="font-size: 21px;">
                     <th>สาขาวิชา</th>
                     <td>
                         <?php echo $result['depname'];?>
                     </td>
                 </tr>
 
-                <tr style="align-items: center;font-size: 21px;">
+                <tr style="font-size: 21px;">
                     <th>เกรดเฉลี่ย</th>
                     <td>
                         <?php echo $result['gpa'];?>
