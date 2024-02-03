@@ -2,6 +2,12 @@
    include "config.php";
    session_start();
 
+   if (!isset($_SESSION['username'])) {
+    $_SESSION['msg'] = "You must log in first";
+    header('location: login.php');
+   }
+
+
    $username = $_SESSION['username'];
    $sql = "SELECT * FROM profile WHERE username = '$username'"; 
    $qry = mysqli_query($conn,$sql);
@@ -82,7 +88,7 @@
                     </button>
                 <div class="dropdown-content">
                     <a href="volunteer.php">กิจกรรมจิตอาสา</a>
-                    <a href="update_volunteer.php">เพิ่มข้อมูลกิจกรรมจิตอาสา</a>
+                    <a href="add_volunteer.php">เพิ่มข้อมูลกิจกรรมจิตอาสา</a>
                 </div>
             </div>
 

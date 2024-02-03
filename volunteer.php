@@ -2,11 +2,14 @@
    include "config.php";
    session_start();
 
+   if (!isset($_SESSION['username'])) {
+    $_SESSION['msg'] = "You must log in first";
+    header('location: login.php');
+   }
+
    $username = $_SESSION['username'];
-
-   $sql = "SELECT * FROM todo WHERE username = '$username'"; 
+   $sql = "SELECT * FROM todo WHERE username = '$username' "; 
    $qry = mysqli_query($conn,$sql);
-
 
 ?>
 
@@ -119,7 +122,7 @@
                 </button>
                 <div class="dropdown-content">
                     <a href="volunteer.php">กิจกรรมจิตอาสา</a>
-                    <a href="update_volunteer.php">เพิ่มข้อมูลกิจกรรมจิตอาสา</a>
+                    <a href="add_volunteer.php">เพิ่มข้อมูลกิจกรรมจิตอาสา</a>
                 </div>
             </div>
 
@@ -150,15 +153,27 @@
                     <th>สถานที่</th>
                     <th>จำนวนชั่วโมง</th>
                     <th>วันเดือนปี</th>
+                    <th style="text-align: center;">ดำเนินการ</th>
                 </tr>
             </thead>
-            <?php while($result = mysqli_fetch_array($qry) ){?>
+            <?php while($result = mysqli_fetch_array($qry,MYSQLI_ASSOC) ){?>
             <tbody>
                 <tr>
                     <td><?php echo $result['volunteer'];?></td>
                     <td><?php echo $result['location'];?></td>
                     <td><?php echo $result['hours'];?></td>
                     <td><?php echo $result['event_date'];?></td>
+                    <td style="text-align: center;"> 
+                    
+                    <a href="JavaScript:if(confirm('Confirm Updete?')==true){window.location='update_volunteer.php?';}" title="แก้ไข"> 
+                        <i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+
+
+                    <a href="JavaScript:if(confirm('Confirm Delete?')==true){window.location='delete.php?id=<?php echo $result["id"];?>';}" title="ลบ">
+                        <i class="fa fa-trash" aria-hidden="true"></i></a> 
+                    
+                    </td>
+
                 </tr>
             </tbody>
             <?php } ?>

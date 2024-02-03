@@ -35,9 +35,6 @@
             $sql2 = "INSERT INTO profile (id,username) VALUES (0,'$username')"; 
             mysqli_query($conn,$sql2);
 
-            $sql3 = "INSERT INTO todo (id,username) VALUES (0,'$username')"; 
-            mysqli_query($conn,$sql3);
-
             $_SESSION['username'] = $username;
             $_SESSION['success'] = "You are now logged in";
             header('location: index.php');

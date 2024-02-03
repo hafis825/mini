@@ -20,7 +20,7 @@
    if($file_image == false){
     echo "คุณไม่ได้ส่งรูปภาพ";
     }elseif ($ext_name != "jpg" && $ext_name != "jpeg" && $ext_name != "png") {
-        echo "คุณไม่ได้ส่งรูปภาพนามสกุล jpg /jpeg/";
+        echo "คุณไม่ได้ส่งรูปภาพนามสกุล jpg /jpeg/png";
     }elseif($file_size > 300000){
         echo "คุณส่งรูปภาพใหญ่เกิน 300KB";
     }else{
@@ -28,10 +28,10 @@
         $sql1 = "UPDATE profile SET fullname = '$fullname', depname = '$depname',gpa = '$gpa',photo = '$new_file' WHERE username = '$username'"; 
         $qry1 = mysqli_query($conn,$sql1);
         if (!$qry1) {
-            echo "ปรับปรุงข้อมูลไม่สำเร็จ";
+            // ปรับปรุงข้อมูลไม่สำเร็จ
             header("location: update_profile.php");
         }else {
-            echo "ปรับปรุงข้อมูลสำเร็จ";
+            // ปรับปรุงข้อมูลสำเร็จ
             header("location: profile.php");
         }  
 

@@ -7,7 +7,6 @@
         header('location: login.php');
     }
 
-
 ?>
 
 <!DOCTYPE html>
@@ -16,7 +15,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MiniProject | Update Volunteer</title>
+    <title>MiniProject | Add Volunteer</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
@@ -103,7 +102,7 @@
                     </button>
                 <div class="dropdown-content">
                     <a href="volunteer.php">กิจกรรมจิตอาสา</a>
-                    <a href="add_volunteer.php">เพิ่มข้อมูลกิจกรรมจิตอาสา</a>
+                    <a href="update_volunteer.php">เพิ่มข้อมูลกิจกรรมจิตอาสา</a>
                 </div>
             </div>
 
@@ -123,13 +122,13 @@
 
     <header>
         <div class="header-info">
-            <h1>แก้ไขกิจกรรมจิตอาสา</h1>
+            <h1>เพิ่มข้อมูลกิจกรรมจิตอาสา</h1>
         </div>
     </header>
 
     <section class="body-info">
         <div class="container">
-            <form action="process_updete_volunteer.php" method="post">
+            <form action="process_add_volunteer.php" method="post" enctype="multipart/form-data">
                 <div class="input-group">
                     <label for="uname"><b>กิจกรรม</b></label>
                     <input type="text" name="volunteer" placeholder="กิจกรรม">
@@ -152,9 +151,9 @@
 
 
                 <div class="input-group">
-                    <button type="submit" class="btn">แก้ไขข้อมูล</button>
-                </div>
+                    <button type="submit" class="btn">เพิ่มข้อมูล</button>
 
+                </div>
             </form>
         </div>
     </section>
