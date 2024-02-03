@@ -6,7 +6,7 @@
 
    $sql = "SELECT * FROM todo WHERE username = '$username'"; 
    $qry = mysqli_query($conn,$sql);
-   $result = mysqli_fetch_array($qry); 
+
 
 ?>
 
@@ -35,9 +35,6 @@
     .dropdown #user {
         color: #ff5733;
     }
-
-
-
 
     table {
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
@@ -155,6 +152,7 @@
                     <th>วันเดือนปี</th>
                 </tr>
             </thead>
+            <?php while($result = mysqli_fetch_array($qry) ){?>
             <tbody>
                 <tr>
                     <td><?php echo $result['volunteer'];?></td>
@@ -163,13 +161,9 @@
                     <td><?php echo $result['event_date'];?></td>
                 </tr>
             </tbody>
+            <?php } ?>
         </table>
         <?php mysqli_close($conn); ?>
-
-
-
-
-
 
     <!-- <div class="footer">
         <p><b>66309010012@Abdulhafis Waemusor</b></p>

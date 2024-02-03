@@ -7,9 +7,9 @@ body {
     font-family: 'Kanit', sans-serif;
 }
 
+
 .header {
     display: flex;
-    /* border: 1px solid red; */
     background-color: #262626;
     color: #fff;
 }
@@ -20,7 +20,6 @@ body {
     justify-content: center;
     align-items: center;
     transition: all 0.8s ease;
-    /* border: 1px solid red; */
 }
 
 
@@ -30,7 +29,6 @@ ul {
     justify-content: center;
     align-items: center;
     list-style: none;
-    /* border: 1px solid red; */
 }
 
 ul li {

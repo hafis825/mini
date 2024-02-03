@@ -13,7 +13,7 @@
    
    $sql = "INSERT INTO todo VALUES  (0,'$volunteer','$location','$hours','$event_date','$username')"; 
 
-//    $sql = "UPDATE todo SET volunteer = '$volunteer', location = '$location', hours = '$hours', event_date = '$event_date' WHERE username = '$username'"; 
+   //$sql = "UPDATE todo SET volunteer = '$volunteer', location = '$location', hours = '$hours', event_date = '$event_date' WHERE username = '$username'"; 
    $qry = mysqli_query($conn,$sql);
    if (!$qry) {
        echo "ไม่สามารถเพิ่มข้อมูลได้";

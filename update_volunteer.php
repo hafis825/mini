@@ -22,20 +22,10 @@
 
 <style>
     header {
-        /* border: 1px solid red; */
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background-color: rgba(211, 211, 211, 1);
-    }
-
-
-    .body {
         display: flex;
         justify-content: center;
         align-items: center;
     }
-
 
     .body-info {
             margin: 0 auto;
@@ -45,7 +35,7 @@
     }
 
     input[type=text],
-    input[type=file] {
+    input[type=date] {
             width: 100%;
             padding: 12px 20px;
             margin: 8px 0;
@@ -74,7 +64,6 @@
             cursor: pointer;
             width: 100%;
             border-radius: 5px;
-            transition: 0.3s;
     }
 
     .dropdown #color {
@@ -157,7 +146,7 @@
 
                 <div class="input-group">
                     <label for="psw"><b>วันเดือนปี</b></label>
-                    <input type="text" name="event_date" placeholder="วันเดือนปี">
+                    <input type="date" name="event_date" placeholder="วันเดือนปี">
                 </div>
 
 

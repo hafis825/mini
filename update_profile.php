@@ -22,20 +22,10 @@
 
 <style>
     header {
-        /* border: 1px solid red; */
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background-color: rgba(211, 211, 211, 1);
-    }
-
-
-    .body {
         display: flex;
         justify-content: center;
         align-items: center;
     }
-
 
     .body-info {
             margin: 0 auto;
@@ -74,7 +64,6 @@
             cursor: pointer;
             width: 100%;
             border-radius: 5px;
-            transition: 0.3s;
     }
 
     .dropdown #color {
