@@ -7,6 +7,11 @@
         header('location: login.php');
     }
 
+    $id=$_GET['id'];
+    $sql = "SELECT * FROM todo WHERE id='$id'";
+    $result=mysqli_query($conn,$sql);
+    $row=mysqli_fetch_array($result);
+
 
 ?>
 
@@ -132,26 +137,27 @@
             <form action="process_updete_volunteer.php" method="post">
                 <div class="input-group">
                     <label for="uname"><b>กิจกรรม</b></label>
-                    <input type="text" name="volunteer" placeholder="กิจกรรม">
+                    <input type="text" name="volunteer" value=<?=$row['volunteer']?>>
                 </div>
 
                 <div class="input-group">
                     <label for="psw"><b>สถานที่</b></label>
-                    <input type="text" name="location" placeholder="สถานที่">
+                    <input type="text" name="location" value=<?=$row['location']?>>
                 </div>
 
                 <div class="input-group">
                     <label for="psw"><b>จำนวนชั่วโมง</b></label>
-                    <input type="text" name="hours" placeholder="จำนวนชั่วโมง">
+                    <input type="text" name="hours" value=<?=$row['hours']?>>
                 </div>
 
                 <div class="input-group">
                     <label for="psw"><b>วันเดือนปี</b></label>
-                    <input type="date" name="event_date" placeholder="วันเดือนปี">
+                    <input type="date" name="event_date" value=<?=$row['event_date']?>>
                 </div>
 
 
                 <div class="input-group">
+                    <input type="submit" value="อัปเดตข้อมูล" class="btn">
                     <button type="submit" class="btn">แก้ไขข้อมูล</button>
                 </div>
 

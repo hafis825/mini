@@ -7,9 +7,6 @@
     header('location: login.php');
    }
 
-   $username = $_SESSION['username'];
-   $sql = "SELECT * FROM todo WHERE username = '$username' "; 
-   $qry = mysqli_query($conn,$sql);
 
 ?>
 
@@ -92,15 +89,13 @@
             }
         }
 
-        .table-a a{
+        .table-a a {
             color: #ff5733;
             font-size: 18px;
             text-decoration: none;
-            padding: 8px; 
+            padding: 8px;
         }
     }
-
-
 </style>
 
 <body>
@@ -162,33 +157,38 @@
                 <th style="text-align: center;">ดำเนินการ</th>
             </tr>
         </thead>
-        <?php while($result = mysqli_fetch_array($qry,MYSQLI_ASSOC) ){?>
-        <tbody>
-            <tr>
-                <td>
-                    <?php echo $result['volunteer'];?>
-                </td>
-                <td>
-                    <?php echo $result['location'];?>
-                <td>
-                    <?php echo $result['hours'];?>
-                </td>
-                <td>
-                    <?php echo $result['event_date'];?>
-                </td>
-                <td style="text-align: center;">
+        <?php 
+        
+        $username = $_SESSION['username'];
+        $sql = "SELECT * FROM todo WHERE username='$username'"; 
+        $qry = mysqli_query($conn,$sql);
 
-                    <div class="table-a">
-                        <a href="JavaScript:if(confirm('Confirm Edit?')==true){window.location='update_volunteer.php?id=<?php echo $result["id"];?>';}" title="แก้ไข">
-                            <i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+        while ($result = mysqli_fetch_array($qry)) { 
+            
+            
+            ?>
+            <tbody>
+                <tr>
+                    <td><?php echo $result['volunteer']; ?></td>
+                    <td><?php echo $result['location']; ?></td>
+                    <td><?php echo $result['hours']; ?></td>
+                    <td><?php echo $result['event_date']; ?></td>
+                    <td style="text-align: center;">
 
-                        <a href="JavaScript:if(confirm('Confirm Delete?')==true){window.location='delete.php?id=<?php echo $result["id"];?>';}" title="ลบ">
-                            <i class="fa fa-trash" aria-hidden="true"></i></a>
-                    </div>
-                </td>
+                        <div class="table-a">
+                            <?php if (isset($result['id'])) { ?>
+                                <a href="update_volunteer.php?id=<?php echo $result['id']; ?>" onclick="return confirm('Confirm Edit?');" title="แก้ไข">
+                                    <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                                </a>
 
-            </tr>
-        </tbody>
+                                <a href="delete.php?id=<?php echo $result['id']; ?>" onclick="return confirm('Confirm Delete?');" title="ลบ">
+                                    <i class="fa fa-trash" aria-hidden="true"></i>
+                                </a>
+                            <?php } ?>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
         <?php } ?>
     </table>
     <?php mysqli_close($conn); ?>
