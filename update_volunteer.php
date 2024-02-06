@@ -136,6 +136,11 @@
         <div class="container">
             <form action="process_updete_volunteer.php" method="post">
                 <div class="input-group">
+                    <label for="uname"><b>รหัสสมาชิก</b></label>
+                    <input type="text" name="id" readonly value=<?=$row['id']?>><br>
+                </div>
+
+                <div class="input-group">
                     <label for="uname"><b>กิจกรรม</b></label>
                     <input type="text" name="volunteer" value=<?=$row['volunteer']?>>
                 </div>
@@ -157,7 +162,6 @@
 
 
                 <div class="input-group">
-                    <input type="submit" value="อัปเดตข้อมูล" class="btn">
                     <button type="submit" class="btn">แก้ไขข้อมูล</button>
                 </div>
 
