@@ -23,3 +23,53 @@ create table todo(
     event_date varchar(30) not null,
     username varchar(255) unique
 );
+
+
+รูปแบบ (Syntax)
+1. เพิ่ม column (Add Column)
+ALTER TABLE table_name ADD column_name datatype;
+ 
+
+2. ลบ column (Drop Column)
+ALTER TABLE table_name DROP COLUMN column_name;
+ 
+
+3. เปลี่ยน data type ของ column (Change Data Type)
+ALTER TABLE table_name MODIFY COLUMN column_name datatype;
+ 
+
+4. กำหนด NOT NULL ใน column (Add NOT NULL Constraint)
+ALTER TABLE table_name MODIFY column_name datatype NOT NULL;
+ 
+
+5. กำหนด Unique ใน column (Add UNIQUE Constraint)
+ALTER TABLE table_name 
+ADD CONSTRAINT MyUniqueConstraint UNIQUE(column1, column2...);
+ 
+
+6. กำหนด Check เงือนไข column (Add CHECK Constraint)
+ALTER TABLE table_name 
+ADD CONSTRAINT MyUniqueConstraint CHECK (CONDITION);
+ 
+
+7. กำหนด Primary Key (Add Primary Key Constraint)
+ALTER TABLE table_name 
+ADD CONSTRAINT MyPrimaryKey PRIMARY KEY (column1, column2...);
+ 
+
+8. ลบ Constraint (Drop Constraint)
+ALTER TABLE table_name 
+DROP CONSTRAINT MyUniqueConstraint;
+สำหรับ MySQL จะใช้ command ดังนี้แทน
+
+ALTER TABLE table_name 
+DROP INDEX MyUniqueConstraint;
+ 
+
+9. ลบ Primart Key (Drop Primary Key)
+ALTER TABLE table_name 
+DROP CONSTRAINT MyPrimaryKey;
+
+สำหรับ MySQL จะใช้ command ดังนี้แทน
+ALTER TABLE table_name 
+DROP PRIMARY KEY;
